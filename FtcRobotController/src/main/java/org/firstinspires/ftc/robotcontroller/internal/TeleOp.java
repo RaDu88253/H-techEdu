@@ -48,7 +48,7 @@ public class TeleOp extends LinearOpMode {
 
         while(opModeIsActive()){
 
-            fata_stanga.setPower(1);
+            fata_stanga.setPower(0.5);
 
 
 
