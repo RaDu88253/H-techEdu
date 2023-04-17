@@ -1,0 +1,2 @@
+## Bun venit!
+Acesta este repository-ul de pregătire H-tech, iar pe secțiunea de Java este bazat pe FTC SDK-ul (First Tech Challenge Software Development Kit) public pentru sezonul 2022-2023 POWERPLAY. Pentru a lucra în java trebuie să vă instalați Java și să îl adăugați în PATH în timpul instalării, iar ca mediu de dezvoltare vom folosi Android Studio. În Android Studio veți selecta Open Project și veți deschide folderul Java. Fișierele cu care vom lucra se găsesc în Java\TeamCode\src\main\java\org\firstinspires\ftc\teamcode. Pentru 
