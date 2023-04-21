@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class MecanumDrivetrain {
 
-    private DcMotorEx fata_stanga, fata_dreapta, spate_stanga, spate_dreapta;
+    public DcMotorEx fata_stanga, fata_dreapta, spate_stanga, spate_dreapta;
     //se declară 4 obiecte de tip motor (DcMotorEx), reprezentând motorul fiecărei roți
 
     public MecanumDrivetrain(HardwareMap map){
