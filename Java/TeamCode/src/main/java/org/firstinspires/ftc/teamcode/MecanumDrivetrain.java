@@ -46,7 +46,7 @@ public class MecanumDrivetrain {
 
             Pentru a putea lucra mai ușor cu acestea, vom folosi funcția <DcMotorEx>.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);.
 
-            Aceasta face ca pozitia actuală a tuturor enco
+            Aceasta face ca pozitia actuală a tuturor encoderelor să fie
 
          */
 
@@ -99,10 +99,36 @@ public class MecanumDrivetrain {
 
     public void miscare(double y, double x, double rot){
 
-        fata_stanga.setPower(y + x - rot);
-        fata_dreapta.setPower(y - x + rot);
-        spate_dreapta.setPower(y + x + rot);
-        spate_stanga.setPower(y - x - rot);
+        //TODO: testat chestia asta
+
+        /*
+            Această funcție permite mișcarea omnidirecțională a unui șasiu cu roți mecanum, prin compunere de
+            vectori.
+            Mișcarea bazei poate fi văzută în diagrama aceasta (https://cdn11.bigcommerce.com/s-eem7ijc77k/images/stencil/original/products/1995/24906/3606-Series-Product-Insight-5__94466.1561476446.png?c=2),
+            făcută de goBILDA.
+
+            y reprezintă ordonata (sus-jos) a joystick-ului folosit, în general cel din stânga și are rolul de a
+            face robotul să se miște față-spate, iar x reprezintă abscisa (stânga-dreapta) aceluiași joystick,
+            având rolul de a face robotul să se miște stânga-dreapta. Prin compunerea acestora rezultă o mișcare
+            omnidirecțională. În variabila rot se salvează o valoare care indică viteza cu care să se rotească
+            robotul pe loc. Unele persoană preferă rotirea robotului pe abscisa joystick-ului din dreapta, caz în
+            care se salvează valoarea x a acelui joystick, dar alte persoane, precum driver-ul nostru, preferă
+            rotația pe triggers (L2 și R2), caz în care rot se salvează ca fiind L2 - R2.
+
+            Când unui motor i se atribuie o putere, acesta rămâne la puterea respectivă cât timp este alimentat,
+            până când i se atribuie o altă putere.
+
+            Această funcție trebuie apelată constant, prin utilizarea unei bucle (în principal
+            while(opModeIsActive)) pe durata întregului TeleOp, preferabil pe un thread separat de
+            orice wait() sau orice altă funcție care îngheață thread-ul curent. În caz contrar, robotul rămâne la
+            ultima putere atribuită pe timpul wait-ului și devine incontrolabil pe perioada acestuia.
+
+         */
+
+        fata_stanga.setPower(y + x + rot);
+        fata_dreapta.setPower(y - x - rot);
+        spate_dreapta.setPower(y + x - rot);
+        spate_stanga.setPower(y - x + rot);
 
     }
 
