@@ -95,4 +95,15 @@ public class MecanumDrivetrain {
          */
 
     }
+
+
+    public void miscare(double y, double x, double rot){
+
+        fata_stanga.setPower(y + x - rot);
+        fata_dreapta.setPower(y - x + rot);
+        spate_dreapta.setPower(y + x + rot);
+        spate_stanga.setPower(y - x - rot);
+
+    }
+
 }
